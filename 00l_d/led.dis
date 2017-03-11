@@ -9,44 +9,39 @@ Disassembly of section .text:
  2023404:	e3c0001f 	bic	r0, r0, #31
  2023408:	e38000d3 	orr	r0, r0, #211	; 0xd3
  202340c:	e129f000 	msr	CPSR_fc, r0
- 2023410:	e59f0068 	ldr	r0, [pc, #104]	; 2023480 <halt_loop+0x4>
- 2023414:	e5901000 	ldr	r1, [r0]
- 2023418:	e3811c03 	orr	r1, r1, #768	; 0x300
- 202341c:	e5801000 	str	r1, [r0]
- 2023420:	e59f005c 	ldr	r0, [pc, #92]	; 2023484 <halt_loop+0x8>
- 2023424:	e3a01000 	mov	r1, #0
- 2023428:	e5801000 	str	r1, [r0]
- 202342c:	e59f0054 	ldr	r0, [pc, #84]	; 2023488 <halt_loop+0xc>
- 2023430:	e5901000 	ldr	r1, [r0]
- 2023434:	e3c1120f 	bic	r1, r1, #-268435456	; 0xf0000000
- 2023438:	e3811201 	orr	r1, r1, #268435456	; 0x10000000
- 202343c:	e5801000 	str	r1, [r0]
+ 2023410:	e59f0058 	ldr	r0, [pc, #88]	; 2023470 <halt_loop+0x4>
+ 2023414:	e3a01000 	mov	r1, #0
+ 2023418:	e5801000 	str	r1, [r0]
+ 202341c:	e59f0050 	ldr	r0, [pc, #80]	; 2023474 <halt_loop+0x8>
+ 2023420:	e5901000 	ldr	r1, [r0]
+ 2023424:	e3c1120f 	bic	r1, r1, #-268435456	; 0xf0000000
+ 2023428:	e3811201 	orr	r1, r1, #268435456	; 0x10000000
+ 202342c:	e5801000 	str	r1, [r0]
 
-02023440 <leds_loop>:
- 2023440:	e59f0044 	ldr	r0, [pc, #68]	; 202348c <halt_loop+0x10>
- 2023444:	e5901000 	ldr	r1, [r0]
- 2023448:	e3a010ff 	mov	r1, #255	; 0xff
+02023430 <leds_loop>:
+ 2023430:	e59f0040 	ldr	r0, [pc, #64]	; 2023478 <halt_loop+0xc>
+ 2023434:	e5901000 	ldr	r1, [r0]
+ 2023438:	e3a010ff 	mov	r1, #255	; 0xff
+ 202343c:	e5801000 	str	r1, [r0]
+ 2023440:	e3e024ff 	mvn	r2, #-16777216	; 0xff000000
+ 2023444:	eb000004 	bl	202345c <delay>
+ 2023448:	e3a01000 	mov	r1, #0
  202344c:	e5801000 	str	r1, [r0]
  2023450:	e3e024ff 	mvn	r2, #-16777216	; 0xff000000
- 2023454:	eb000004 	bl	202346c <delay>
- 2023458:	e3a01000 	mov	r1, #0
- 202345c:	e5801000 	str	r1, [r0]
- 2023460:	e3e024ff 	mvn	r2, #-16777216	; 0xff000000
- 2023464:	eb000000 	bl	202346c <delay>
- 2023468:	eafffff4 	b	2023440 <leds_loop>
+ 2023454:	eb000000 	bl	202345c <delay>
+ 2023458:	eafffff4 	b	2023430 <leds_loop>
 
-0202346c <delay>:
- 202346c:	e2422001 	sub	r2, r2, #1
- 2023470:	e3520000 	cmp	r2, #0
- 2023474:	1afffffc 	bne	202346c <delay>
- 2023478:	e1a0f00e 	mov	pc, lr
+0202345c <delay>:
+ 202345c:	e2422001 	sub	r2, r2, #1
+ 2023460:	e3520000 	cmp	r2, #0
+ 2023464:	1afffffc 	bne	202345c <delay>
+ 2023468:	e1a0f00e 	mov	pc, lr
 
-0202347c <halt_loop>:
- 202347c:	eafffffe 	b	202347c <halt_loop>
- 2023480:	1002330c 	andne	r3, r2, ip, lsl #6
- 2023484:	10060000 	andne	r0, r6, r0
- 2023488:	11000c40 	tstne	r0, r0, asr #24
- 202348c:	11000c44 	tstne	r0, r4, asr #24
+0202346c <halt_loop>:
+ 202346c:	eafffffe 	b	202346c <halt_loop>
+ 2023470:	10060000 	andne	r0, r6, r0
+ 2023474:	11000c40 	tstne	r0, r0, asr #24
+ 2023478:	11000c44 	tstne	r0, r4, asr #24
 
 Disassembly of section .ARM.attributes:
 

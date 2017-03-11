@@ -11,8 +11,9 @@ _start:
 	/*
 	 * for close watchdog
 	 * PS-Hold high
+	 *这个代码去掉，烧录后，led闪一下，需要按住reset按键,代码才正常执行
 	 */
-#if 1
+#if 0
 	ldr r0, =0x1002330c
 	ldr r1, [r0]
 	orr r1, r1, #0x300
