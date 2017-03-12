@@ -13,7 +13,7 @@ _start:
 	 * PS-Hold high
 	 *这个代码去掉，烧录后，led闪一下，需要按住reset按键,代码才正常执行
 	 */
-#if 0
+#if 1
 	ldr r0, =0x1002330c
 	ldr r1, [r0]
 	orr r1, r1, #0x300

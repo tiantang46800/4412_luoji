@@ -350,7 +350,7 @@ mem_init:
 	
 		/* set GPIO to enable UART */
 		@ GPIO setting for UART for UART0/1/2/3
-		
+		//把所有和串口相关的全部配置为串口功能
 		ldr r0, =0x11400000
 		ldr r1, =0x22222222
 		str r1, [r0]
@@ -376,10 +376,10 @@ mem_init:
 		ldr r1, =0x3c5
 		str r1, [r0, #UCON_OFFSET]
 	
-		ldr r1, =UART_UBRDIV_VAL //0x2b
+		ldr r1, =UART_UBRDIV_VAL //0x2b ,43 ,追问分频率
 		str r1, [r0, #UBRDIV_OFFSET]
 	
-		ldr r1, =UART_UDIVSLOT_VAL //0xc
+		ldr r1, =UART_UDIVSLOT_VAL //0xc,12
 		str r1, [r0, #UDIVSLOT_OFFSET]
 	
 		ldr r1, =0x4f4f4f4f
